@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "browserify-middleware": "^8.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "^2.7.1",
@@ -13,6 +14,7 @@
     "express-handlebars": "^3.1.0",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "jquery": "^3.4.1",
     "morgan": "~1.9.1",
     "node-sass-middleware": "^0.11.0"
   }
