@@ -1,7 +1,14 @@
-var todos = [
-    'Ke Bengkel',
-    'Ke Mall',
-    'Ke Rumah Sakit'
-];
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var TodoSchema = new Schema({
+    text: {
+        type: 'String',
+        required: true
+    },
+    done: {
+        type: 'Boolean'
+    }
+})
 
-module.exports = todos;
+var Todo = mongoose.model('Todo', TodoSchema);
+module.exports = Todo;
