@@ -17,18 +17,37 @@ var app = express();
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
 
+//Handlebars
 app.engine('hbs', exphbs({
   extname: '.hbs',
   defaultLayout: 'layout'
 }));
 app.set('view engine', 'hbs');
 
+//Sass Middleware
 app.use(sassMiddleware({
   src: __dirname + '/sass',
   dest: __dirname + '/public',
   debug: true,
 }));
+
+//Browserify
 app.get('/javascripts/bundle.js', browserify('./client/script.js'));
+
+//Browser-sync
+if (app.get('env') == 'development') {
+  var browserSync = require('browser-sync');
+  var config = {
+    files: ["public/**/*.{js.css}", "client/*.js", "sass/**/*.scss", "view/**/*.hbs"],
+    logLevel: 'debug',
+    logSnippet: false,
+    reloadDelay: 3000,
+    reloadOnRestart: true
+  }
+  var bs = browserSync(config);
+  app.use(require('connect-browser-sync')(bs));
+}
+
 
 app.use(logger('dev'));
 app.use(express.json());
