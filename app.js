@@ -22,6 +22,7 @@ app.engine('hbs', exphbs({
   defaultLayout: 'layout'
 }));
 app.set('view engine', 'hbs');
+
 app.use(sassMiddleware({
   src: __dirname + '/sass',
   dest: __dirname + '/public',
