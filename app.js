@@ -12,8 +12,14 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var todosRouter = require('./routes/todos');
 
+
 var app = express();
 
+var todos = require('./routes/todos/index');
+var todosAPI = require('./routes/todos/api');
+
+app.use('/todos', todos);
+app.use('/api/todos', todosAPI);
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
