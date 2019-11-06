@@ -17,7 +17,12 @@ var app = express();
 
 var todos = require('./routes/todos/index');
 var todosAPI = require('./routes/todos/api');
+var bodyParser = require('body-parser');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use('/todos', todos);
 app.use('/api/todos', todosAPI);
 // view engine setup
