@@ -44,6 +44,9 @@ app.use(sassMiddleware({
 }));
 
 //Browserify
+browserify.settings({
+  transform: ['hbsfy']
+});
 app.get('/javascripts/bundle.js', browserify('./client/script.js'));
 
 //Mongoose

@@ -14,6 +14,7 @@
 // }
 
 var $ = require('jquery');
+var todoTemplate = require("../views/partials/todo.hbs");
 var addTodo = function () {
     var text = $('#add-todo-text').val();
     $.ajax({
@@ -24,8 +25,8 @@ var addTodo = function () {
         },
         dataType: 'json',
         success: function (data) {
-            var todo = data.todo;
-            var newLiHtml = '<li><input type="checkbox"><span> ' + todo + '</span></li>';
+            var todo = data.todo[0];
+            var newLiHtml = todoTemplate(todo);
             $('form + ul').append(newLiHtml);
             $('#add-todo-text').val('');
         }
