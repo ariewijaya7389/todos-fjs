@@ -10,6 +10,12 @@ body {
 
     a {
         color: $primary-link-color;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     ul {
