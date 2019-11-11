@@ -1,6 +1,8 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  body .hide {
+    display: none; }
   body a {
     color: #00B7FF;
     text-decoration: none;
@@ -11,3 +13,6 @@ body {
     list-style-type: none; }
     body ul .checked span {
       text-decoration: line-through; }
+  body .footer div {
+    float: left;
+    padding: 0 10px; }
