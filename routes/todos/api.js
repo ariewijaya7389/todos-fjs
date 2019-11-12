@@ -5,6 +5,8 @@ var Todo = require("../../models/todos");
 
 router
   .route("/")
+
+  //Read API
   .get(function (req, res, next) {
     Todo.findAsync({}, null, {
         sort: {
@@ -17,6 +19,8 @@ router
       .catch(next)
       .error(console.error);
   })
+
+  //Create API
   .post(function (req, res, next) {
     var todo = new Todo();
     console.log(req.body);
@@ -42,6 +46,8 @@ router
 
 router
   .route("/:id")
+
+  //Read by ID API  
   .get(function (req, res, next) {
     Todo.findOneAsync({
         _id: req.params.id
@@ -55,6 +61,8 @@ router
       .catch(next)
       .error(console.error);
   })
+
+  //Edit API
   .put(function (req, res, next) {
     var todo = {};
     var prop;
@@ -79,6 +87,8 @@ router
         });
       });
   })
+
+  //Delete API
   .delete(function (req, res, next) {
     Todo.findByIdAndRemoveAsync(req.params.id)
       .then(function (deletedTodo) {
